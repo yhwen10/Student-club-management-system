@@ -25,6 +25,7 @@ import com.utils.R;
 /**
  * 权限(Token)验证
  */
+// 检测token从而判断是否需要重新登录
 @Component
 public class AuthorizationInterceptor implements HandlerInterceptor {
 

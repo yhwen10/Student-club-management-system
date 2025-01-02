@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.JinqihuodongpaimingDao">
+
+    <!-- 查询近期活动排名 -->
+    <select id="selectJinqihuodongpaiming" resultType="com.entity.JinqihuodongpaimingEntity">
+        SELECT
+            id,
+            biaoti,
+            shetuanmingcheng,
+            huodongtupian,
+            kaishishijian,
+            jieshushijian,
+            huodongrenshu,
+            huodongdidian,
+            huodongxiangqing
+        FROM
+            shetuanhuodong
+        WHERE
+            kaishishijian >= NOW() -- 仅查询开始时间为当前时间及之后的活动
+        ORDER BY
+            huodongrenshu DESC,   -- 按活动人数降序排序
+            kaishishijian ASC     -- 若人数相同，按开始时间升序排序
+            LIMIT 10; -- 仅返回前10条记录
+    </select>
+
+</mapper>

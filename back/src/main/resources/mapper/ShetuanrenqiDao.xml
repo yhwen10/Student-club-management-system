@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.ShetuanrenqiDao">
+    <!-- 查询所有社团人气数据 -->
+    <select id="getAllRenqiData" resultType="com.entity.ShetuanrenqiEntity">
+        SELECT club_id AS clubId,
+               member_count AS memberCount,
+               event_participation AS eventParticipation
+        FROM club_popularity
+    </select>
+</mapper>
+
+
+

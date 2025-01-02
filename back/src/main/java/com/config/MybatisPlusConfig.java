@@ -14,7 +14,7 @@ import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 public class MybatisPlusConfig {
 
     /**
-     * 分页插件
+     * 分页插件框架
      */
     @Bean
     public PaginationInterceptor paginationInterceptor() {

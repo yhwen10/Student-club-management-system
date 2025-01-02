@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.PinglunguanliDao">
+
+    <!-- 查询列表（VO 格式） -->
+    <select id="selectListVO" resultType="com.entity.vo.PinglunguanliVO">
+        SELECT * FROM discussshetuanxinxi ${ew.customSqlSegment}
+    </select>
+
+    <!-- 查询单个（VO 格式） -->
+    <select id="selectVO" resultType="com.entity.vo.PinglunguanliVO">
+        SELECT * FROM discussshetuanxinxi ${ew.customSqlSegment} LIMIT 1
+    </select>
+
+    <!-- 查询列表（View 格式） -->
+    <select id="selectListView" resultType="com.entity.view.PinglunguanliView">
+        SELECT * FROM discussshetuanxinxi ${ew.customSqlSegment}
+    </select>
+
+    <!-- 查询单个（View 格式） -->
+    <select id="selectView" resultType="com.entity.view.PinglunguanliView">
+        SELECT * FROM discussshetuanxinxi ${ew.customSqlSegment} LIMIT 1
+    </select>
+</mapper>
+
+
+
+

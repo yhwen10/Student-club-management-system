@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.StudentInterestAnalysisDao">
+
+    <!-- 查询学生兴趣分析数据 -->
+    <select id="selectByStudentId" resultType="com.entity.StudentInterestAnalysisEntity">
+        SELECT
+            id,
+            student_id AS studentId,
+            interest_tags AS interestTags,
+            activity_count AS activityCount,
+            category_details AS categoryDetails,
+            updated_at AS updatedAt
+        FROM
+            student_interest_analysis
+        WHERE
+            student_id = #{studentId}
+    </select>
+
+    <!-- 插入学生兴趣分析数据 -->
+    <insert id="insertStudentInterestAnalysis" parameterType="com.entity.StudentInterestAnalysisEntity">
+        INSERT INTO student_interest_analysis (
+            student_id,
+            interest_tags,
+            activity_count,
+            category_details,
+            updated_at
+        ) VALUES (
+                     #{studentId},
+                     #{interestTags},
+                     #{activityCount},
+                     #{categoryDetails},
+                     NOW()
+                 )
+    </insert>
+
+    <!-- 更新学生兴趣分析数据 -->
+    <update id="updateStudentInterestAnalysis" parameterType="com.entity.StudentInterestAnalysisEntity">
+        UPDATE student_interest_analysis
+        SET
+            interest_tags = #{interestTags},
+            activity_count = #{activityCount},
+            category_details = #{categoryDetails},
+            updated_at = NOW()
+        WHERE
+            student_id = #{studentId}
+    </update>
+</mapper>
